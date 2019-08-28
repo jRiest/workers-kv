@@ -15,7 +15,7 @@ describe('workers', () => {
 
     const expected = {
       basePath: '/client/v4/accounts/1234/storage/kv/namespaces',
-      headers: { 'X-Auth-Email': 'bla@gmail.com', 'X-Auth-Key': 'abcd' },
+      headers: { 'X-Auth-Email': 'bla@gmail.com', 'Authorization': 'Bearer abcd' },
       host: 'api.cloudflare.com',
       namespaceId: 'bla_id',
     };

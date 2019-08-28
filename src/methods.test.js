@@ -12,7 +12,7 @@ describe('methods', () => {
 
   const headers = {
     'X-Auth-Email': cfEmail,
-    'X-Auth-Key': cfAuthKey,
+    'Authorization': `Bearer ${cfAuthKey}`
   };
   const baseInputs = { host, basePath, namespaceId, headers };
   const baseInputsWithoutNamespaceId = {
@@ -29,7 +29,7 @@ describe('methods', () => {
   test('listKeys', () => {
     methods.listKeys(baseInputs)({ limit: 123, prefix: 'prod_' });
     const expectedOptions1 = {
-      headers: { 'X-Auth-Email': 'cf_email', 'X-Auth-Key': 'cf_auth_key' },
+      headers: { 'X-Auth-Email': 'cf_email', 'Authorization': 'Bearer cf_auth_key' },
       host: 'api.cloudflare.com',
       method: 'GET',
       path:
@@ -45,7 +45,7 @@ describe('methods', () => {
       prefix: 'prod_',
     });
     const expectedOptions2 = {
-      headers: { 'X-Auth-Email': 'cf_email', 'X-Auth-Key': 'cf_auth_key' },
+      headers: { 'X-Auth-Email': 'cf_email', 'Authorization': 'Bearer cf_auth_key' },
       host: 'api.cloudflare.com',
       method: 'GET',
       path:
@@ -88,7 +88,7 @@ describe('methods', () => {
   test('listNamespaces', () => {
     methods.listNamespaces(baseInputs)({ page: 1, per_page: '17' });
     const expectedOptions1 = {
-      headers: { 'X-Auth-Email': 'cf_email', 'X-Auth-Key': 'cf_auth_key' },
+      headers: { 'X-Auth-Email': 'cf_email', 'Authorization': 'Bearer cf_auth_key' },
       host: 'api.cloudflare.com',
       method: 'GET',
       path:
@@ -110,7 +110,7 @@ describe('methods', () => {
         'Content-Length': 6,
         'Content-Type': 'text/plain',
         'X-Auth-Email': 'cf_email',
-        'X-Auth-Key': 'cf_auth_key',
+        'Authorization': 'Bearer cf_auth_key',
       },
       host: 'api.cloudflare.com',
       method: 'PUT',
@@ -124,7 +124,7 @@ describe('methods', () => {
     const key = 'xKey';
     methods.readKey(baseInputs)({ key });
     const expectedOptions1 = {
-      headers: { 'X-Auth-Email': 'cf_email', 'X-Auth-Key': 'cf_auth_key' },
+      headers: { 'X-Auth-Email': 'cf_email', 'Authorization': 'Bearer cf_auth_key' },
       host: 'api.cloudflare.com',
       method: 'GET',
       path:
@@ -137,7 +137,7 @@ describe('methods', () => {
     const key = 'xKey';
     methods.deleteKey(baseInputs)({ key });
     const expectedOptions1 = {
-      headers: { 'X-Auth-Email': 'cf_email', 'X-Auth-Key': 'cf_auth_key' },
+      headers: { 'X-Auth-Email': 'cf_email', 'Authorization': 'Bearer cf_auth_key' },
       host: 'api.cloudflare.com',
       method: 'DELETE',
       path:
@@ -154,7 +154,7 @@ describe('methods', () => {
         'Content-Length': 15,
         'Content-Type': 'application/json',
         'X-Auth-Email': 'cf_email',
-        'X-Auth-Key': 'cf_auth_key',
+        'Authorization': 'Bearer cf_auth_key',
       },
       host: 'api.cloudflare.com',
       method: 'DELETE',
@@ -175,7 +175,7 @@ describe('methods', () => {
         'Content-Length': 65,
         'Content-Type': 'application/json',
         'X-Auth-Email': 'cf_email',
-        'X-Auth-Key': 'cf_auth_key',
+        'Authorization': 'Bearer cf_auth_key',
       },
       host: 'api.cloudflare.com',
       method: 'PUT',

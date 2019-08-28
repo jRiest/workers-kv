@@ -11,7 +11,7 @@ const WorkersKVREST = function({
 
   const headers = {
     'X-Auth-Email': cfEmail,
-    'X-Auth-Key': cfAuthKey,
+    'Authorization': `Bearer ${cfAuthKey}`
   };
   const baseInputs = { host, basePath, namespaceId, headers };
 
